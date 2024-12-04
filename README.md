@@ -1,5 +1,44 @@
-# eVTOL-GZ
-Path Routing, Node capacity, POI analysis and data visualization. 
+# eVTOL-GZ 项目说明
 
-# Framework
-React+Kepler for UI, Flask for python and Github as version controller.
+## 项目简介
+本项目是一个关于广州 eVTOL（电动垂直起降飞行器）交通的研究与可视化展示系统。项目目标是通过后端数据处理与前端可视化展示，为 eVTOL 的起降场选址、禁飞区设置以及交通流量规划等提供支持。
+
+**[点击查看地图展示 (Demo)](http://10.4.5.202:5000)**
+
+## 项目结构
+项目分为前端和后端，前后端各自的功能如下：
+
+### 前端
+- 负责数据的可视化展示
+- 利用 Kepler.gl 库将建筑数据、禁飞区等通过地图形式呈现
+- 未来计划逐步替换为交互式的 React 应用，提供更好的用户交互体验
+
+### 后端
+- 使用 Python 的 Flask 框架，提供 API 服务
+- 负责处理建筑数据、禁飞区等的相关逻辑，包含从数据清洗到处理后的数据输出
+- 支持通过 Kepler.gl 生成地图的 HTML 文件并提供展示
+
+## TODOLIST
+- [ ] 将前端替换为使用 React 进行交互式的地图展示
+- [ ] 提高前端地图的加载速度，优化用户体验
+- [ ] 使用 Git LFS 来管理大型地图文件，避免 Git 推送问题
+- [ ] 增加 eVTOL 交通流量预测与可视化模块
+
+## 开发日志
+
+### 2024-12-04
+- 完成了地图的初步展示功能，解决了 Kepler.gl 地图焦点设置的问题。
+- 修复了因模板路径错误导致的 TemplateNotFound 错误，将模板路径调整为 backend/templates。
+
+### 2024-12-03
+- 将项目分为前端和后端，删除旧的 frontend 并重构为简化的 Python 前端，使用 Kepler.gl 进行地图展示。
+- 使用 Docker 安装新版本的 Node.js，以支持 Kepler.gl 最新版本。
+
+### 2024-12-02
+- 尝试通过多次安装不同版本的 Kepler.gl，但由于依赖关系问题，最终决定改为使用 Python 管理前端地图展示。
+- 解决了由于 kepler.gl 版本冲突而导致的编译失败问题。
+
+### 2024-12-01
+- 初步完成后端的搭建，使用 Flask 提供 API。
+- 在数据处理过程中遇到大文件推送失败的问题，计划使用 Git LFS 进行管理。
+
